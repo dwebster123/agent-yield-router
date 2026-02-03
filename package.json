@@ -1,0 +1,39 @@
+{
+  "name": "voltr-yield-optimizer",
+  "version": "1.0.0",
+  "description": "AI-powered yield optimization agent for Solana using Voltr vaults",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts monitor",
+    "once": "ts-node src/index.ts once",
+    "report": "ts-node src/index.ts report",
+    "dev": "DRY_RUN=true ts-node src/index.ts monitor",
+    "test": "echo \"Tests coming soon\" && exit 0"
+  },
+  "keywords": [
+    "solana",
+    "defi",
+    "yield",
+    "ai-agent",
+    "voltr",
+    "hackathon"
+  ],
+  "author": "NixKV",
+  "license": "MIT",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@solana/web3.js": "^1.87.0",
+    "@voltr/vault-sdk": "^1.0.0",
+    "dotenv": "^16.3.0",
+    "solana-agent-kit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
