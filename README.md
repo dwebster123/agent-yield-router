@@ -1,183 +1,200 @@
-# Voltr Yield Optimizer 🤖💰
+# Cross-Chain Yield Agent 🤖💰
 
-**AI-powered yield optimization agent for Solana**
+**A self-sustaining AI agent that earns yield across DeFi protocols to fund its own existence.**
 
-Built for the [Solana Agent Hackathon 2026](https://colosseum.com/agent-hackathon) 
+Built for [USDC Agent Hackathon](https://www.circle.com/blog/announcing-the-usdc-agent-hackathon) (Agentic Commerce Track) and [Solana Agent Hackathon 2026](https://colosseum.com/agent-hackathon)
 
-## What It Does
+## 🎯 The Vision
 
-An autonomous AI agent that manages [Voltr](https://voltr.xyz) vault allocations to maximize yield while respecting risk parameters. It continuously monitors APYs across Solana DeFi protocols and automatically rebalances to capture the best risk-adjusted returns.
+What if your AI agent didn't cost you money — **it made money while it worked for you**?
 
-### Key Features
+This agent:
+1. **Monitors yields** across Solana, Base, Arbitrum, Ethereum
+2. **Calculates risk-adjusted returns** factoring in TVL, audits, liquidity
+3. **Routes capital via CCTP** using Circle's native cross-chain bridge
+4. **Earns yield to sustain itself** — true agentic commerce
 
-- 📊 **Real-time APY Monitoring** — Live data from DefiLlama across 7+ Solana protocols
-- 🧠 **Risk-Adjusted Decision Making** — Weighs returns against protocol safety (TVL, audits, age, exploit history)
-- 🔄 **Automatic Rebalancing** — Moves capital to optimal strategies when improvement exceeds threshold
-- 📈 **Performance Reporting** — Detailed status reports with live market data
-- ⚙️ **Configurable Risk Parameters** — Tune to your risk tolerance
+## 🔥 Why This Matters
 
-## Live Yields (Real-Time)
+Current AI agents are a **cost center**. You pay for API calls, compute, and infrastructure.
+
+This agent flips the model: **put capital to work, earn yield, become self-sustaining**.
+
+At scale, an agent with $10,000 earning 8% APY generates $800/year — more than enough to cover its own operating costs.
+
+## 🌐 Supported Chains & Protocols
+
+| Chain | Protocols | CCTP Support |
+|-------|-----------|--------------|
+| **Solana** | Kamino, Loopscale, Jupiter, Drift, MarginFi | ✅ |
+| **Base** | Aave, Moonwell, Morpho | ✅ |
+| **Arbitrum** | Aave, Radiant | ✅ |
+| **Ethereum** | Aave, Compound | ✅ |
+
+## 📊 Live Yield Comparison
 
 ```
-USDC:
-├─ Loopscale: 7.06% APY (risk-adjusted: 4.36%)
-└─ Kamino: 3.23% APY (risk-adjusted: 2.59%)
+🌐 Cross-Chain USDC Yield Opportunities
+═══════════════════════════════════════════════════
 
-SOL (LSTs):
-├─ Jupiter: 6.52% APY (risk-adjusted: 5.78%)
-├─ Drift: 6.53% APY (risk-adjusted: 5.47%)
-├─ Jito: 5.89% APY (risk-adjusted: 5.45%)
-├─ Kamino: 6.06% APY (risk-adjusted: 4.80%)
-├─ Marinade: 5.26% APY (risk-adjusted: 4.56%)
-└─ Save: 2.11% APY (risk-adjusted: 1.34%)
+Solana (current chain)
+────────────────────────────────────────
+  Loopscale       APY:  7.01% | Risk: 80/100 | Cost: $0.00
+  Kamino          APY:  2.91% | Risk: 97/100 | Cost: $0.00
+
+Base 
+────────────────────────────────────────
+  Aave            APY:  3.90% | Risk: 100/100 | Cost: $1.05
+
+Arbitrum 
+────────────────────────────────────────
+  Radiant         APY:  8.16% | Risk: 72/100 | Cost: $1.10
+  Aave            APY:  2.27% | Risk: 100/100 | Cost: $1.10
 ```
 
-## How It Works
+## 🧠 Decision Engine
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    YIELD OPTIMIZER AGENT                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐   │
-│  │  APY        │     │  Strategy   │     │  Voltr      │   │
-│  │  Monitor    │────▶│  Brain      │────▶│  Executor   │   │
-│  │  (Live)     │     │  (AI)       │     │             │   │
-│  └─────────────┘     └─────────────┘     └─────────────┘   │
-│        │                   │                   │           │
-│        ▼                   ▼                   ▼           │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │              Protocol Integrations                   │   │
-│  │  Kamino │ Loopscale │ Jito │ Jupiter │ Drift │ Save │   │
-│  └─────────────────────────────────────────────────────┘   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+The agent makes intelligent decisions based on:
 
-### Decision Logic
+### Risk Scoring
+- **TVL Factor**: Higher TVL = lower risk
+- **Protocol Reputation**: Audit status, age, exploit history
+- **Liquidity Risk**: How easily can you exit?
+- **Strategy Type**: Lending (safest) → Vault → LP (riskiest)
 
-1. **Fetch Live APYs** — Gets current rates from DefiLlama aggregator
-2. **Calculate Risk Scores** — Scores each protocol based on TVL, audits, age, exploit history
-3. **Rank Opportunities** — Sorts by risk-adjusted APY (APY × risk score)
-4. **Determine Optimal Allocation** — Inverse-risk-weighted with max caps and diversity requirements
-5. **Evaluate Rebalance** — Only rebalances if improvement > threshold and gas is reasonable
-6. **Execute** — Withdraws from underperformers, deposits to top performers via Voltr SDK
+### Cost Analysis
+- Bridge costs via CCTP
+- Gas costs per chain
+- Minimum hold period to break even
 
-## Quick Start
+### Risk Profiles
+- **Conservative**: Lending only, established protocols
+- **Moderate**: Include vaults, medium-risk strategies  
+- **Aggressive**: All opportunities including LP positions
+
+## 🚀 Quick Start
 
 ```bash
-# Clone and install
-git clone https://github.com/yourusername/voltr-yield-optimizer
-cd voltr-yield-optimizer
+# Install
+git clone https://github.com/yourusername/cross-chain-yield-agent
+cd cross-chain-yield-agent
 npm install
 
-# Check current yields
+# Run yield analysis
 npm run yields
 
-# Run single analysis (dry-run)
-npm run once
+# Run the agent (dry run)
+npx ts-node src/yield-agent.ts 1000 moderate
 
-# Generate status report
-npm run report
-
-# Start monitoring (dry-run by default)
-npm run dev
+# Run with execution (requires Bankr setup)
+npx ts-node src/yield-agent.ts 1000 moderate --execute
 ```
 
-## CLI Commands
+## 📋 Commands
 
 ```bash
-npx ts-node src/index.ts <command>
+# Show cross-chain yield opportunities
+npx ts-node src/multichain-monitor.ts
 
-Commands:
-  monitor   Start continuous monitoring and rebalancing loop
-  once      Run a single analysis cycle
-  report    Generate comprehensive status report
-  yields    Show current market yields across protocols
+# Run agent with specific principal and risk profile
+npx ts-node src/yield-agent.ts <principal> <risk-profile>
+
+# Example: $500 conservative
+npx ts-node src/yield-agent.ts 500 conservative
+
+# Example: $2000 aggressive  
+npx ts-node src/yield-agent.ts 2000 aggressive
 ```
 
-## Configuration
+## 💰 Self-Sustainability Analysis
 
-Edit `.env` or pass as environment variables:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `RPC_URL` | Solana RPC endpoint | mainnet-beta |
-| `VAULT_PUBKEY` | Your Voltr vault address | — |
-| `MANAGER_KEYPAIR_PATH` | Path to manager keypair | ./keypair.json |
-| `DRY_RUN` | Skip transaction execution | true |
-| `CHECK_INTERVAL_MS` | Monitoring interval | 60000 |
-
-### Risk Parameters (in code)
-
-```typescript
-{
-  maxAllocationPerProtocol: 0.4,     // Max 40% in any single protocol
-  minProtocolsForDiversity: 3,       // At least 3 protocols
-  minRiskScore: 60,                  // Only use protocols with score >= 60
-  minAPYDifferenceToRebalance: 0.02, // Need 2%+ improvement to rebalance
-  minTimeBetweenRebalances: 3600,    // 1 hour minimum between rebalances
-  maxGasCostForRebalance: 5,         // Max $5 in gas
-}
-```
-
-## Supported Protocols
-
-| Protocol | Type | TVL | Risk Tier | Status |
-|----------|------|-----|-----------|--------|
-| Jito | LST | $1.5B | Safe | ✅ Live |
-| Jupiter | LST | $500M | Safe | ✅ Live |
-| Marinade | LST | $350M | Safe | ✅ Live |
-| Drift | LST/Lending | $186M | Medium | ✅ Live |
-| Kamino | Lending | $46M | Safe | ✅ Live |
-| Loopscale | Lending | $5M | Medium | ✅ Live |
-| Save (Solend) | Lending | $11M | Medium | ✅ Live |
-
-## Project Structure
+The agent calculates when it becomes economically autonomous:
 
 ```
-src/
-├── index.ts          # CLI entry point
-├── agent.ts          # Main agent orchestration
-├── strategy-brain.ts # AI decision-making logic
-├── apy-monitor.ts    # Real-time APY fetching (DefiLlama)
-├── voltr-client.ts   # Voltr SDK integration
-├── protocols.ts      # Protocol registry
-└── types.ts          # TypeScript definitions
+💰 SELF-SUSTAINABILITY REPORT
+══════════════════════════════════════════════════
+Principal: $1000
+Current APY: 7.01%
+
+Daily yield: $0.19
+Daily operating cost: $0.10
+Net daily: $0.09
+
+✅ SELF-SUSTAINING
+Monthly profit: $2.74
+Annual profit: $32.85
 ```
 
-## Tech Stack
+**Break-even point**: ~$521 principal at 7% APY
 
-- **DefiLlama API** — Aggregated yield data across chains
-- **Voltr SDK** — Vault management and strategy execution
-- **Solana Agent Kit** — Foundation for Solana protocol interactions
-- **TypeScript** — Type-safe implementation
-- **Solana/web3.js** — Blockchain interaction
+## 🔧 Architecture
 
-## Roadmap
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   CROSS-CHAIN YIELD AGENT                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐       │
+│  │  Multi-Chain│     │  Risk &     │     │  Execution  │       │
+│  │  APY Monitor│────▶│  Decision   │────▶│  Engine     │       │
+│  │  (DefiLlama)│     │  Engine     │     │  (Bankr)    │       │
+│  └─────────────┘     └─────────────┘     └─────────────┘       │
+│        │                   │                   │               │
+│        ▼                   ▼                   ▼               │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │              Circle CCTP Bridge Layer                    │   │
+│  │    Solana ←──→ Base ←──→ Arbitrum ←──→ Ethereum        │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                 Protocol Integrations                    │   │
+│  │  Kamino │ Loopscale │ Aave │ Moonwell │ Morpho │ Radiant│   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-- [x] Core architecture
-- [x] Real-time APY monitoring (DefiLlama)
-- [x] Risk scoring system
-- [x] Rebalancing decision logic
-- [x] CLI with yields/report/once commands
-- [ ] Full Voltr SDK execution (in progress)
-- [ ] Natural language reporting via LLM
-- [ ] Telegram/Discord notifications
-- [ ] Backtesting framework
-- [ ] Forum post submission
+## 🛣️ Roadmap
 
-## Hackathon Info
+### Phase 1 (Current) ✅
+- Multi-chain yield monitoring
+- Risk-adjusted opportunity ranking
+- Dry-run execution planning
+- Self-sustainability calculations
 
-- **Event:** Solana Agent Hackathon 2026
-- **Deadline:** February 12, 2026
-- **Prize Pool:** $100,000
-- **Claim Code:** d17ce4b0-f171-4bf4-8133-ee194e280dee
+### Phase 2 (In Progress)
+- Full Bankr execution integration
+- CCTP bridge automation
+- Real-time rebalancing
 
-## License
+### Phase 3 (Future)
+- Looping/multiply strategies (Jupiter Multiply)
+- Delta-neutral yield farming
+- Collateral optimization (borrow → deploy → earn)
+
+## 🔗 Circle CCTP Integration
+
+This agent leverages Circle's Cross-Chain Transfer Protocol (CCTP) for native USDC transfers:
+
+- **No wrapped tokens**: True 1:1 USDC across chains
+- **Permissionless**: Anyone can bridge
+- **Fast**: ~15 minutes for EVM chains
+- **Supported chains**: Solana, Base, Ethereum, Arbitrum, Polygon, Avalanche
+
+## 🤝 Bankr Integration
+
+Execution powered by [Bankr](https://bankr.bot):
+- Natural language DeFi operations
+- Multi-chain support
+- Bridge automation
+- Portfolio management
+
+## 📄 License
 
 MIT
 
 ---
 
-Built with 🦀 by NixKV for the Solana Agent Hackathon
+**Built with ❤️ for the USDC Agent Hackathon**
+
+*"The future isn't agents that cost money — it's agents that make money."*
